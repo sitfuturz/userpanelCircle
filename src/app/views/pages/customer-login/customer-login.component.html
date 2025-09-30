@@ -1,0 +1,57 @@
+<!-- Customer Login Container -->
+<div class="login-container">
+  <div class="login-wrapper">
+    <!-- Login Card -->
+    <div class="login-card">
+      <div class="login-header text-center">
+        <!-- Logo -->
+        <div class="logo-container mb-4">
+          <img src="assets/images/download.png" alt="GBS Logo" class="logo">
+        </div>
+        
+        <!-- Welcome Text -->
+        <h2 class="welcome-title">Welcome to GBS 👋</h2>
+        <p class="welcome-subtitle">Start your journey with a single step<br>
+          Log in and manage your business seamlessly.</p>
+      </div>
+
+      <!-- Login Form -->
+      <div class="login-form">
+        <div class="form-group mb-4">
+          <label for="mobileNumber" class="form-label">Mobile Number</label>
+          <div class="mobile-input-group">
+            <div class="country-code">
+              <span>+91</span>
+            </div>
+            <input 
+              type="tel" 
+              id="mobileNumber"
+              class="form-control mobile-input" 
+              placeholder="Enter Mobile number"
+              [(ngModel)]="mobileNumber"
+              digitOnly
+              maxlength="10"
+              [disabled]="isLoading">
+          </div>
+        </div>
+
+        <button 
+          type="button" 
+          class="btn btn-login w-100"
+          (click)="sendOtp()"
+          [disabled]="isLoading || !mobileNumber">
+          <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2" role="status"></span>
+          {{ isLoading ? 'Sending OTP...' : 'Log In' }}
+        </button>
+      </div>
+
+      <!-- Footer -->
+      <div class="login-footer text-center mt-4">
+        <p class="copyright">
+          Copyright © 2025. All rights reserved by 
+          <span class="brand-text">GBS</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

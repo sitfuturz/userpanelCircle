@@ -1,0 +1,494 @@
+<!-- profile.component.html - Complete Template -->
+<div class="profile-container">
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading profile...</p>
+  </div>
+
+  <!-- Profile Content -->
+  <div *ngIf="!isLoading && userProfile" class="profile-content">
+    
+    <!-- Profile Header -->
+    <div class="profile-header">
+      <div class="profile-header-content">
+        
+        <!-- Profile Picture Section -->
+        <div class="profile-picture-section">
+          <div class="profile-picture-container">
+            <img 
+              [src]="imageurl+getProfilePictureUrl()"
+              [alt]="userProfile.name"
+              class="profile-picture"
+               onerror="this.src='assets/images/placeholder-image.png'">
+            
+            <!-- Avatar Fallback
+            <div class="avatar-fallback" *ngIf="!userProfile.profilePic">
+              <span class="initials">{{ getUserInitials() }}</span>
+            </div> -->
+            
+            <!-- Upload Button (Edit Mode) -->
+            <div class="upload-overlay" *ngIf="isEditMode">
+              <input 
+                type="file" 
+                id="profilePicUpload" 
+                accept="image/*"
+                (change)="onProfilePictureChange($event)"
+                style="display: none;">
+              <label for="profilePicUpload" class="upload-btn">
+                <i class="fas fa-camera"></i>
+              </label>
+            </div>
+          </div>
+          
+          <!-- User Info -->
+          <div class="user-info">
+            <h1 class="user-name">{{ userProfile.name }}</h1>
+            <p class="business-name" *ngIf="getPrimaryBusiness()">
+              {{ getPrimaryBusiness()?.business_name }}
+            </p>
+            <div class="user-meta">
+              <span class="chapter-info">
+                <i class="fas fa-map-marker-alt"></i>
+                {{ userProfile.chapter_name }} - {{ userProfile.city }}
+              </span>
+              <!-- <span class="role-info" *ngIf="userProfile.meeting_role">
+                <i class="fas fa-user-tag"></i>
+                {{ userProfile.meeting_role }}
+              </span> -->
+            </div>
+            
+            <!-- Profile Completion
+            <div class="profile-completion">
+              <div class="completion-bar">
+                <div 
+                  class="completion-fill" 
+                  [style.width.%]="getProfileCompletionPercentage()">
+                </div>
+              </div>
+              <span class="completion-text">
+                Profile {{ getProfileCompletionPercentage() }}% complete
+              </span>
+            </div> -->
+          </div>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button 
+            class="btn-edit" 
+            *ngIf="!isEditMode"
+            (click)="onEditProfile()">
+            <i class="fas fa-edit"></i>
+            Edit Photo
+          </button>
+          
+          <div class="edit-actions" *ngIf="isEditMode">
+            <button 
+              class="btn-save" 
+              (click)="onSaveProfile()"
+              [disabled]="isUpdatingProfile">
+              <i class="fas fa-save"></i>
+              {{ isUpdatingProfile ? 'Saving...' : 'Save' }}
+            </button>
+            <button 
+              class="btn-cancel" 
+              (click)="onCancelEdit()"
+              [disabled]="isUpdatingProfile">
+              <i class="fas fa-times"></i>
+              Cancel
+            </button>
+          </div>
+          
+          <!-- <button 
+            class="btn-delete" 
+            *ngIf="!isEditMode"
+            (click)="onDeleteAccount()">
+            <i class="fas fa-trash"></i>
+            Delete Account
+          </button> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Details Sections -->
+    <div class="profile-sections">
+      
+      <!-- Personal Details Section -->
+      <div class="section-container">
+        <div 
+          class="section-header" 
+          (click)="toggleSection('personal')"
+          [class.expanded]="isSectionExpanded('personal')">
+          <div class="section-title">
+            <i [class]="getSectionIcon('personal')"></i>
+            <span>Personal Details</span>
+          </div>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        
+        <div class="section-content" *ngIf="isSectionExpanded('personal')">
+          <!-- Edit Personal Details Button -->
+          <div class="section-actions" *ngIf="!isEditMode">
+            <button 
+              class="btn-edit-section" 
+              (click)="onEditPersonalDetails()">
+              <i class="fas fa-edit"></i>
+              Edit Personal Details
+            </button>
+          </div>
+          
+          <!-- Edit Actions for Personal Details -->
+          <div class="section-edit-actions" *ngIf="isEditMode && editingSection === 'personal'">
+            <button 
+              class="btn-save-section" 
+              (click)="onSavePersonalDetails()"
+              [disabled]="isUpdatingProfile">
+              <i class="fas fa-save"></i>
+              {{ isUpdatingProfile ? 'Saving...' : 'Save Changes' }}
+            </button>
+            <button 
+              class="btn-cancel-section" 
+              (click)="onCancelPersonalDetails()"
+              [disabled]="isUpdatingProfile">
+              <i class="fas fa-times"></i>
+              Cancel
+            </button>
+          </div>
+          
+          <div class="details-grid">
+            <div class="detail-item">
+              <label class="detail-label">Name:</label>
+              <span class="detail-value" *ngIf="!isEditMode || editingSection !== 'personal'">{{ userProfile.name }}</span>
+              <input 
+                type="text" 
+                class="detail-input" 
+                *ngIf="isEditMode && editingSection === 'personal'"
+                [(ngModel)]="editablePersonalData.name">
+            </div>
+            
+            <div class="detail-item">
+              <label class="detail-label">Email:</label>
+              <span class="detail-value" *ngIf="!isEditMode || editingSection !== 'personal'">{{ userProfile.email }}</span>
+              <input 
+                type="email" 
+                class="detail-input" 
+                *ngIf="isEditMode && editingSection === 'personal'"
+                [(ngModel)]="editablePersonalData.email">
+            </div>
+            
+            <div class="detail-item">
+              <label class="detail-label">Mobile Number:</label>
+              <span class="detail-value">{{ formatPhoneNumber(userProfile.mobile_number) }}</span>
+            </div>
+            
+            <div class="detail-item">
+              <label class="detail-label">Emergency Contact:</label>
+              <span class="detail-value" *ngIf="!isEditMode || editingSection !== 'personal'">{{ formatPhoneNumber(userProfile.emergency_contact) }}</span>
+              <input 
+                type="tel" 
+                class="detail-input" 
+                *ngIf="isEditMode && editingSection === 'personal'"
+                [(ngModel)]="editablePersonalData.emergency_contact">
+            </div>
+            
+            <div class="detail-item full-width">
+              <label class="detail-label">Introduction:</label>
+              <span class="detail-value" *ngIf="!isEditMode || editingSection !== 'personal'">{{ userProfile.introduction_details || 'Not provided' }}</span>
+              <textarea 
+                class="detail-textarea" 
+                *ngIf="isEditMode && editingSection === 'personal'"
+                [(ngModel)]="editablePersonalData.introduction_details"
+                rows="3"
+                placeholder="Enter your introduction"></textarea>
+            </div>
+            
+            <div class="detail-item">
+              <label class="detail-label">Date of Birth:</label>
+              <span class="detail-value">{{ formatDate(userProfile.date_of_birth) }}</span>
+            </div>
+            
+            <div class="detail-item">
+              <label class="detail-label">Marriage Anniversary:</label>
+              <span class="detail-value">{{ formatDate(userProfile.marriage_anniversary) }}</span>
+            </div>
+            
+            <div class="detail-item full-width">
+              <label class="detail-label">Address:</label>
+              <span class="detail-value" *ngIf="!isEditMode || editingSection !== 'personal'">{{ getFullAddress() || 'Not provided' }}</span>
+              <textarea 
+                class="detail-textarea" 
+                *ngIf="isEditMode && editingSection === 'personal'"
+                [(ngModel)]="editablePersonalData.address"
+                rows="3"
+                placeholder="Enter your address"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Business Details Section -->
+      <div class="section-container">
+        <div 
+          class="section-header" 
+          (click)="toggleSection('business')"
+          [class.expanded]="isSectionExpanded('business')">
+          <div class="section-title">
+            <i [class]="getSectionIcon('business')"></i>
+            <span>Business Details</span>
+          </div>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        
+        <div class="section-content" *ngIf="isSectionExpanded('business')">
+          <div class="business-details" *ngIf="getPrimaryBusiness(); else noBusiness">
+            <div class="details-grid">
+              <div class="detail-item">
+                <label class="detail-label">Business Name:</label>
+                <span class="detail-value">{{ getPrimaryBusiness()?.business_name || 'Not provided' }}</span>
+              </div>
+              
+              <div class="detail-item">
+                <label class="detail-label">Category:</label>
+                <span class="detail-value">{{ getBusinessCategoryDisplay(getPrimaryBusiness()!) }}</span>
+              </div>
+              
+              <div class="detail-item full-width">
+                <label class="detail-label">Products/Services:</label>
+                <span class="detail-value">{{ getBusinessProductsDisplay(getPrimaryBusiness()!) }}</span>
+              </div>
+              
+              <div class="detail-item">
+                <label class="detail-label">Business Type:</label>
+                <span class="detail-value">{{ getPrimaryBusiness()?.business_type || 'Not specified' }}</span>
+              </div>
+              
+              <div class="detail-item">
+                <label class="detail-label">Team Size:</label>
+                <span class="detail-value">{{ getPrimaryBusiness()?.team_size || 'Not specified' }}</span>
+              </div>
+              
+              <div class="detail-item">
+                <label class="detail-label">Establishment Year:</label>
+                <span class="detail-value">{{ formatDate(getPrimaryBusiness()?.establishment) }}</span>
+              </div>
+              
+              <div class="detail-item">
+                <label class="detail-label">Business Email:</label>
+                <span class="detail-value">{{ getPrimaryBusiness()?.email || 'Not provided' }}</span>
+              </div>
+              
+              <div class="detail-item">
+                <label class="detail-label">Business Mobile:</label>
+                <span class="detail-value">{{ formatPhoneNumber(getPrimaryBusiness()?.mobile_number || '') }}</span>
+              </div>
+              
+              <div class="detail-item">
+                <label class="detail-label">Website:</label>
+                <span class="detail-value">
+                  <a 
+                    *ngIf="getPrimaryBusiness()?.website" 
+                    [href]="getPrimaryBusiness()?.website" 
+                    target="_blank" 
+                    class="link">
+                    {{ getPrimaryBusiness()?.website }}
+                  </a>
+                  <span *ngIf="!getPrimaryBusiness()?.website">Not provided</span>
+                </span>
+              </div>
+              
+              <div class="detail-item full-width">
+                <label class="detail-label">Business Address:</label>
+                <span class="detail-value">{{ getPrimaryBusiness()?.address || 'Not provided' }}</span>
+              </div>
+              
+              <div class="detail-item full-width">
+                <label class="detail-label">About Business:</label>
+                <span class="detail-value">{{ getPrimaryBusiness()?.about_business_details || 'Not provided' }}</span>
+              </div>
+            </div>
+          </div>
+          
+          <ng-template #noBusiness>
+            <div class="empty-state">
+              <i class="fas fa-briefcase empty-icon"></i>
+              <h3>No Business Information</h3>
+              <p>Business details have not been added to this profile yet.</p>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+
+      <!-- Bio Details Section -->
+      <div class="section-container">
+        <div 
+          class="section-header" 
+          (click)="toggleSection('bio')"
+          [class.expanded]="isSectionExpanded('bio')">
+          <div class="section-title">
+            <i [class]="getSectionIcon('bio')"></i>
+            <span>Bio Details</span>
+          </div>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        
+        <div class="section-content" *ngIf="isSectionExpanded('bio')">
+          <div class="details-grid">
+            <div class="detail-item">
+              <label class="detail-label">Years in Business:</label>
+              <span class="detail-value">{{ getBioValue('yearsInBusiness') }}</span>
+            </div>
+            
+            <div class="detail-item">
+              <label class="detail-label">Previous Business Types:</label>
+              <span class="detail-value">{{ getBioValue('previousTypesOfBusiness') }}</span>
+            </div>
+            
+            <div class="detail-item">
+              <label class="detail-label">Spouse:</label>
+              <span class="detail-value">{{ getBioValue('spouse') }}</span>
+            </div>
+            
+            <div class="detail-item">
+              <label class="detail-label">Children:</label>
+              <span class="detail-value">{{ getBioValue('children') }}</span>
+            </div>
+            
+            <div class="detail-item">
+              <label class="detail-label">Pets:</label>
+              <span class="detail-value">{{ getBioValue('pets') }}</span>
+            </div>
+            
+            <div class="detail-item">
+              <label class="detail-label">Hobbies:</label>
+              <span class="detail-value">{{ getBioValue('hobbies') }}</span>
+            </div>
+            
+            <div class="detail-item">
+              <label class="detail-label">City of Residence:</label>
+              <span class="detail-value">{{ getBioValue('cityOfResidence') }}</span>
+            </div>
+            
+            <div class="detail-item">
+              <label class="detail-label">Years in City:</label>
+              <span class="detail-value">{{ getBioValue('yearInThatCity') }}</span>
+            </div>
+            
+            <div class="detail-item full-width">
+              <label class="detail-label">My Burning Desire:</label>
+              <span class="detail-value">{{ getBioValue('myBurningDesire') }}</span>
+            </div>
+            
+            <div class="detail-item full-width">
+              <label class="detail-label">Something No One Knows:</label>
+              <span class="detail-value">{{ getBioValue('somethingNoOne') }}</span>
+            </div>
+            
+            <div class="detail-item full-width">
+              <label class="detail-label">My Key to Success:</label>
+              <span class="detail-value">{{ getBioValue('myKeyToSuccess') }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Growth Sheet Section -->
+      <div class="section-container">
+        <div 
+          class="section-header" 
+          (click)="toggleSection('growth')"
+          [class.expanded]="isSectionExpanded('growth')">
+          <div class="section-title">
+            <i [class]="getSectionIcon('growth')"></i>
+            <span>Growth Sheet</span>
+          </div>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        
+        <div class="section-content" *ngIf="isSectionExpanded('growth')">
+          <div class="details-grid">
+            <div class="detail-item">
+              <label class="detail-label">Goals:</label>
+              <span class="detail-value">{{ getGrowthSheetValue('goals') }}</span>
+            </div>
+            
+            <div class="detail-item">
+              <label class="detail-label">Accomplishments:</label>
+              <span class="detail-value">{{ getGrowthSheetValue('accomplishment') }}</span>
+            </div>
+            
+            <div class="detail-item">
+              <label class="detail-label">Interests:</label>
+              <span class="detail-value">{{ getGrowthSheetValue('interests') }}</span>
+            </div>
+            
+            <div class="detail-item">
+              <label class="detail-label">Networks:</label>
+              <span class="detail-value">{{ getGrowthSheetValue('networks') }}</span>
+            </div>
+            
+            <div class="detail-item full-width">
+              <label class="detail-label">Skills:</label>
+              <span class="detail-value">{{ getGrowthSheetValue('skills') }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Media Links Section -->
+      <div class="section-container">
+        <div 
+          class="section-header" 
+          (click)="toggleSection('social')"
+          [class.expanded]="isSectionExpanded('social')">
+          <div class="section-title">
+            <i [class]="getSectionIcon('social')"></i>
+            <span>Social Media Links</span>
+          </div>
+          <i class="fas fa-chevron-down toggle-icon"></i>
+        </div>
+        
+        <div class="section-content" *ngIf="isSectionExpanded('social')">
+          <div class="social-media-grid" *ngIf="getActiveSocialMediaLinks().length > 0; else noSocialMedia">
+            <div 
+              class="social-media-item" 
+              *ngFor="let link of getActiveSocialMediaLinks()">
+              <div class="social-platform">
+                <i [class]="getSocialMediaIcon(link.platform)"></i>
+                <span class="platform-name">{{ link.platform }}</span>
+              </div>
+              <a 
+                [href]="link.url" 
+                target="_blank" 
+                class="social-link"
+                (click)="openSocialMediaLink(link.url)">
+                {{ link.url }}
+              </a>
+            </div>
+          </div>
+          
+          <ng-template #noSocialMedia>
+            <div class="empty-state">
+              <i class="fas fa-share-alt empty-icon"></i>
+              <h3>No Social Media Links</h3>
+              <p>Social media links have not been added to this profile yet.</p>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="!isLoading && !userProfile" class="error-state">
+    <div class="error-icon">
+      <i class="fas fa-exclamation-triangle"></i>
+    </div>
+    <h2>Profile Not Found</h2>
+    <p>Unable to load profile information. Please try refreshing the page.</p>
+    <button class="btn-retry" (click)="loadUserProfile()">
+      <i class="fas fa-refresh"></i>
+      Retry
+    </button>
+  </div>
+</div>
