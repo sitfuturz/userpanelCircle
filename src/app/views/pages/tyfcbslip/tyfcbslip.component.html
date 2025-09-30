@@ -1,7 +1,7 @@
 <div class="tyfcb-container">
   <!-- Header Section -->
   <div class="tyfcb-header">
-    <h1 class="page-title">TYFCB Slip</h1>
+    <h1 class="page-title">Business Slip</h1>
     <div class="header-controls">
       <div class="tab-container">
         <button 
@@ -21,7 +21,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 5v14M5 12h14"/>
         </svg>
-        TYFCB Slip
+        Business Slip
       </button>
     </div>
   </div>
@@ -39,7 +39,7 @@
     <!-- Loading State -->
     <div *ngIf="isLoading" class="loading-container">
       <div class="spinner"></div>
-      <p>Loading TYFCBs...</p>
+      <p>Loading Business.</p>
     </div>
 
     <!-- TYFCB List -->
@@ -87,8 +87,8 @@
       <!-- Empty State -->
       <div *ngIf="currentTyfcbs.length === 0" class="empty-state">
         <div class="empty-icon">📋</div>
-        <h3>No {{ activeTab }} TYFCBs found</h3>
-        <p>{{ activeTab === 'given' ? 'Start creating TYFCBs by clicking the TYFCB Slip button' : 'You haven\'t received any TYFCBs yet' }}</p>
+        <h3>No {{ activeTab }} Business found</h3>
+        <p>{{ activeTab === 'given' ? 'Start creating Business by clicking the Business Slip button' : 'You haven\'t received any Business yet' }}</p>
       </div>
     </div>
   </div>
@@ -131,7 +131,7 @@
   <div class="modal-container detail-modal" (click)="$event.stopPropagation()">
     <div class="modal-header">
       <div class="modal-title-section">
-        <h2>TYFCB Details</h2>
+        <h2>Business Details</h2>
         <div class="modal-meta">
           <span class="from-label">From: <strong>{{ selectedTyfcb?.giverId?.name ||'Unknown' }}</strong></span>
           <span class="date-label">{{ selectedTyfcb?.createdAt | date:'medium' }}</span>
@@ -215,7 +215,7 @@
 <div *ngIf="showTyfcbSlipModal" class="modal-overlay" (click)="closeTyfcbSlipModal()">
   <div class="modal-container create-modal" (click)="$event.stopPropagation()">
     <div class="modal-header">
-      <h2>TYFCB Slip</h2>
+      <h2>Business Slip</h2>
       <button class="close-btn" (click)="closeTyfcbSlipModal()">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="18" y1="6" x2="6" y2="18"/>

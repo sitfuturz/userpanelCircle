@@ -13,7 +13,7 @@ class Common {
   
   //
   // Customer specific constants
-  public APP_NAME: string = 'GBS Customer';
+  public APP_NAME: string = 'Circle Customer';
   public APP_VERSION: string = '1.0.0';
   
   // OTP Configuration

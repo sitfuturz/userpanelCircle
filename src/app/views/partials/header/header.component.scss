@@ -5,7 +5,7 @@ $header-bg: #ffffff;
 $header-border: #e9ecef;
 $text-primary: #2c3e50;
 $text-secondary: #6c757d;
-$brand-color: #722f37;
+$brand-color: #E31E24;
 $stats-bg: #007bff;
 $hover-bg: #f8f9fa;
 $shadow-light: rgba(0, 0, 0, 0.05);
@@ -91,7 +91,7 @@ $success-color: #28a745;
         &:focus {
           outline: none;
           border-color: $brand-color;
-          box-shadow: 0 0 0 3px rgba(114, 47, 55, 0.1);
+          box-shadow: 0 0 0 3px rgba(227, 30, 36, 0.1);
         }
 
         &::placeholder {
@@ -347,7 +347,7 @@ $success-color: #28a745;
         transition: background 0.2s ease;
 
         &:hover {
-          background: rgba(114, 47, 55, 0.1);
+        background: rgba(227, 30, 36, 0.1);
         }
       }
     }
@@ -387,7 +387,7 @@ $success-color: #28a745;
         }
 
         &.unread {
-          background: rgba(114, 47, 55, 0.05);
+          background: rgba(227, 30, 36, 0.05);
         }
 
         .notification-avatar {
@@ -620,7 +620,8 @@ $success-color: #28a745;
   transform: translateY(-10px);
   transition: all 0.2s ease;
   z-index: 1000;
-  overflow: hidden;
+  max-height: 80vh;
+  overflow-y: auto;
 
   &.show {
     opacity: 1;
@@ -731,13 +732,20 @@ $success-color: #28a745;
   }
 
   @media (max-width: 768px) {
-    min-width: 260px;
-    right: -10px;
+    position: fixed;
+    top: 64px;
+    right: max(12px, env(safe-area-inset-right));
+    left: max(12px, env(safe-area-inset-left));
+    min-width: 0;
+    width: auto;
+    max-width: none;
+    border-radius: 12px;
+    max-height: calc(100vh - 88px);
   }
 
   @media (max-width: 480px) {
-    min-width: calc(100vw - 32px);
-    right: -16px;
-    left: -16px;
+    top: 60px;
+    right: max(12px, env(safe-area-inset-right));
+    left: max(12px, env(safe-area-inset-left));
   }
 }

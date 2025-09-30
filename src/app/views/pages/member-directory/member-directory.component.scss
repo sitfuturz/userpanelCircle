@@ -61,7 +61,7 @@
   transition: all 0.3s ease;
   
   &:hover {
-    border-color: #8b1538;
+    border-color: #E31E24;
     box-shadow: 0 2px 8px rgba(139, 21, 56, 0.1);
   }
 }
@@ -138,7 +138,7 @@
   outline: none;
   
   &:focus {
-    border-color: #8b1538;
+    border-color: #E31E24;
     box-shadow: 0 0 0 2px rgba(139, 21, 56, 0.1);
   }
 }
@@ -158,7 +158,7 @@
   
   &.selected {
     background: #fff8f8;
-    color: #8b1538;
+    color: #E31E24;
     font-weight: 500;
   }
   
@@ -199,9 +199,9 @@
   margin-left: auto;
   
   &:hover {
-    background: #8b1538;
+    background: #E31E24;
     color: white;
-    border-color: #8b1538;
+    border-color: #E31E24;
     transform: scale(1.05);
   }
   
@@ -233,7 +233,7 @@
   width: 40px;
   height: 40px;
   border: 3px solid #f3f3f3;
-  border-top: 3px solid #8b1538;
+  border-top: 3px solid #E31E24;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -289,7 +289,7 @@
   position: absolute;
   top: -4px;
   right: -4px;
-  background: #8b1538;
+  background: #E31E24;
   color: white;
   width: 20px;
   height: 20px;
@@ -395,7 +395,7 @@
   }
   
   &.arrow-btn:hover {
-    background: #8b1538;
+    background: #E31E24;
     color: white;
   }
 }
@@ -441,7 +441,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  background: #8b1538;
+  background: #E31E24;
   color: white;
   width: 24px;
   height: 24px;
@@ -600,14 +600,14 @@
   
   &:hover:not(:disabled) {
     background: #f8f9fa;
-    border-color: #8b1538;
-    color: #8b1538;
+    border-color: #E31E24;
+    color: #E31E24;
   }
   
   &.active {
-    background: #8b1538;
+    background: #E31E24;
     color: white;
-    border-color: #8b1538;
+    border-color: #E31E24;
   }
   
   &:disabled {
@@ -711,12 +711,12 @@
 .grid-action-btn:focus,
 .pagination-btn:focus,
 .view-toggle:focus {
-  outline: 2px solid #8b1538;
+  outline: 2px solid #E31E24;
   outline-offset: 2px;
 }
 
 .custom-select:focus-within .select-trigger {
-  border-color: #8b1538;
+  border-color: #E31E24;
   box-shadow: 0 0 0 2px rgba(139, 21, 56, 0.1);
 }
 
@@ -789,7 +789,7 @@
   }
   
   &:focus {
-    border-color: #8b1538;
+    border-color: #E31E24;
     box-shadow: 0 0 0 4px rgba(139, 21, 56, 0.1);
   }
   
@@ -823,7 +823,7 @@
   z-index: 1;
   
   &:hover {
-    background: #8b1538;
+    background: #E31E24;
     color: white;
     transform: translateY(-50%) scale(1.1);
   }
@@ -839,7 +839,7 @@
   color: #666;
   
   strong {
-    color: #8b1538;
+    color: #E31E24;
     font-weight: 600;
   }
 }
@@ -890,11 +890,11 @@
 
 /* Focus states for accessibility */
 .search-input:focus-visible {
-  border-color: #8b1538;
+  border-color: #E31E24;
   box-shadow: 0 0 0 4px rgba(139, 21, 56, 0.15);
 }
 
 .clear-search-btn:focus-visible {
-  outline: 2px solid #8b1538;
+  outline: 2px solid #E31E24;
   outline-offset: 2px;
 }

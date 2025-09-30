@@ -2,10 +2,10 @@
 $sidebar-bg: #ffffff;
 $sidebar-border: #e9ecef;
 $nav-text-color: #6c757d;
-$nav-text-active: #722f37;
-$nav-bg-active: #722f37;
+$nav-text-active: #E31E24;
+$nav-bg-active: #E31E24;
 $nav-bg-hover: #f8f9fa;
-$logo-color: #722f37;
+$logo-color: #E31E24;
 $logout-color: #dc3545;
 $shadow-light: rgba(0, 0, 0, 0.05);
 $shadow-medium: rgba(0, 0, 0, 0.1);
@@ -24,7 +24,7 @@ $border-radius: 8px;
   background: $nav-bg-active !important;
   border: none !important;
   border-radius: 50% !important;
-  box-shadow: 0 4px 16px rgba(114, 47, 55, 0.4) !important;
+  box-shadow: 0 4px 16px rgba(227, 30, 36, 0.4) !important;
   z-index: 1050 !important;
   display: flex !important;
   flex-direction: column !important;
@@ -47,7 +47,7 @@ $border-radius: 8px;
 
   &:hover {
     transform: translateY(-2px) scale(1.05) !important;
-    box-shadow: 0 8px 24px rgba(114, 47, 55, 0.5) !important;
+    box-shadow: 0 8px 24px rgba(227, 30, 36, 0.5) !important;
   }
 
   &:active {
@@ -55,7 +55,7 @@ $border-radius: 8px;
   }
 
   &.active {
-    background: rgba(114, 47, 55, 0.9) !important;
+    background: rgba(227, 30, 36, 0.9) !important;
     
     .hamburger-line:nth-child(1) {
       transform: rotate(45deg) translate(7px, 7px) !important;
@@ -85,13 +85,13 @@ $border-radius: 8px;
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 4px 16px rgba(114, 47, 55, 0.4) !important;
+    box-shadow: 0 4px 16px rgba(227, 30, 36, 0.4) !important;
   }
   50% {
-    box-shadow: 0 4px 16px rgba(114, 47, 55, 0.6), 0 0 0 8px rgba(114, 47, 55, 0.1) !important;
+    box-shadow: 0 4px 16px rgba(227, 30, 36, 0.6), 0 0 0 8px rgba(227, 30, 36, 0.1) !important;
   }
   100% {
-    box-shadow: 0 4px 16px rgba(114, 47, 55, 0.4) !important;
+    box-shadow: 0 4px 16px rgba(227, 30, 36, 0.4) !important;
   }
 }
 
@@ -359,7 +359,7 @@ $border-radius: 8px;
     }
 
     &.has-active-child {
-      background: rgba(114, 47, 55, 0.1) !important;
+      background: rgba(227, 30, 36, 0.1) !important;
       color: $nav-text-active !important;
     }
   }
@@ -440,7 +440,7 @@ $border-radius: 8px;
     }
 
     &.active {
-      background: rgba(114, 47, 55, 0.1) !important;
+      background: rgba(227, 30, 36, 0.1) !important;
       color: $nav-text-active !important;
 
       .submenu-indicator {

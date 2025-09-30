@@ -13,12 +13,12 @@ export class SideBarService {
       moduleName: 'GBS Customer Portal',
       menus: [
         {
-           title: 'Referrals',
+           title: 'Recommendation',
            link: 'referrals',
            icon: 'corner-up-right',
         },
         {
-          title: 'Tyfcbslip',
+          title: 'Business Received',
           link: 'tyfcbslip',
           icon: 'trending-up',
         },
@@ -27,12 +27,12 @@ export class SideBarService {
           link:'member',
         icon:'user'    },
         {
-          title: 'Gratitude',
+          title: 'Endorsement',
           link: 'gratitude',
           icon: 'user-plus',
         },
         {
-          title: 'Growth-meet',
+          title: 'Business Meeting',
           link: 'growth-meet',
           icon: 'file-import',
         },

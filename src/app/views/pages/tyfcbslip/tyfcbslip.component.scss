@@ -73,7 +73,7 @@
   align-items: center;
   gap: 8px;
   padding: 12px 20px;
-  background: #8b1538;
+  background: #E31E24;
   color: white;
   border: none;
   border-radius: 6px;
@@ -237,7 +237,7 @@
   width: 40px;
   height: 40px;
   border: 3px solid #f3f3f3;
-  border-top: 3px solid #8b1538;
+  border-top: 3px solid #E31E24;
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin-bottom: 16px;
@@ -312,14 +312,14 @@
 
 .pagination-btn:hover:not(:disabled) {
   background: #f8f9fa;
-  border-color: #8b1538;
-  color: #8b1538;
+  border-color: #E31E24;
+  color: #E31E24;
 }
 
 .pagination-btn.active {
-  background: #8b1538;
+  background: #E31E24;
   color: white;
-  border-color: #8b1538;
+  border-color: #E31E24;
 }
 
 .pagination-btn:disabled {
@@ -496,15 +496,15 @@
 }
 
 .type-btn.active {
-  background: #8b1538;
+  background: #E31E24;
   color: white;
-  border-color: #8b1538;
+  border-color: #E31E24;
 }
 
 .business-btn.active {
-  background: #8b1538;
+  background: #E31E24;
   color: white;
-  border-color: #8b1538;
+  border-color: #E31E24;
 }
 
 .amount-section {
@@ -514,7 +514,7 @@
 .amount-display {
   font-size: 24px;
   font-weight: 600;
-  color: #8b1538;
+  color: #E31E24;
   margin-top: 8px;
 }
 
@@ -559,7 +559,7 @@
 
 .radio-option input[type="radio"] {
   margin-right: 8px;
-  accent-color: #8b1538;
+  accent-color: #E31E24;
 }
 
 .radio-text {
@@ -585,7 +585,7 @@
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: #8b1538;
+  border-color: #E31E24;
   box-shadow: 0 0 0 3px rgba(139, 21, 56, 0.1);
 }
 
@@ -616,7 +616,7 @@
 .btn-confirm {
   padding: 12px 48px;
   border: none;
-  background: #8b1538;
+  background: #E31E24;
   color: white;
   border-radius: 6px;
   cursor: pointer;
@@ -788,7 +788,7 @@
 .close-btn:focus,
 .btn-confirm:focus,
 .action-btn:focus {
-  outline: 2px solid #8b1538;
+  outline: 2px solid #E31E24;
   outline-offset: 2px;
 }
 
@@ -874,7 +874,7 @@
     
     &:focus {
       outline: none;
-      border-color: #8b1538;
+      border-color: #E31E24;
       box-shadow: 0 0 0 3px rgba(139, 21, 56, 0.1);
     }
     
@@ -895,7 +895,7 @@
     left: 0;
     right: 0;
     background: white;
-    border: 2px solid #8b1538;
+    border: 2px solid #E31E24;
     border-top: none;
     border-radius: 0 0 8px 8px;
     max-height: 200px;

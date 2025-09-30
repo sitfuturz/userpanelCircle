@@ -1,7 +1,7 @@
 <div class="gratitude-container">
   <!-- Header Section -->
   <div class="gratitude-header">
-    <h1 class="page-title">Gratitude</h1>
+    <h1 class="page-title">Endorsement</h1>
     <div class="header-controls">
       <div class="tab-container">
         <button 
@@ -21,7 +21,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 5v14M5 12h14"/>
         </svg>
-        Add Gratitude
+        Add Endorsement
       </button>
     </div>
   </div>
@@ -31,7 +31,7 @@
     <!-- Loading State -->
     <div *ngIf="isLoading" class="loading-container">
       <div class="spinner"></div>
-      <p>Loading testimonials...</p>
+      <p>Loading Endorsement...</p>
     </div>
 
     <!-- Testimonials List -->
@@ -114,8 +114,8 @@
       <div *ngIf="currentTestimonials.length === 0" class="empty-state">
         <div class="empty-icon">💬</div>
         <h3>No testimonials {{ activeTab }} yet.</h3>
-        <p *ngIf="activeTab === 'received'">Start collecting testimonials by asking your connections!</p>
-        <p *ngIf="activeTab === 'pending'">All testimonials have been reviewed.</p>
+        <p *ngIf="activeTab === 'received'">Start collecting Endorsement by asking your connections!</p>
+        <p *ngIf="activeTab === 'pending'">All Endorsement have been reviewed.</p>
       </div>
     </div>
   </div>
@@ -164,7 +164,7 @@
 <div *ngIf="showGratitudeModal" class="modal-overlay" (click)="closeGratitudeModal()">
   <div class="modal-container" (click)="$event.stopPropagation()">
     <div class="modal-header">
-      <h2>Add Your Gratitude</h2>
+      <h2>Add Your Endorsement</h2>
       <button class="close-btn" (click)="closeGratitudeModal()">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="18" y1="6" x2="6" y2="18"/>
@@ -179,19 +179,19 @@
         <!-- Gratitude Type Selection -->
         <div class="form-section">
           <label class="section-label">
-            Gratitude Type <span class="required">*</span>
+            Endorsement Type <span class="required">*</span>
           </label>
           <div class="dropdown-container">
             <select formControlName="gratitudeType" class="form-select">
-              <option value="give">Give Testimonial</option>
-              <option value="ask">Ask for Testimonial</option>
+              <option value="give">Give Endorsement</option>
+              <option value="ask">Ask for Endorsement</option>
             </select>
             <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polyline points="6,9 12,15 18,9"/>
             </svg>
           </div>
           <div *ngIf="gratitudeForm.get('gratitudeType')?.invalid && gratitudeForm.get('gratitudeType')?.touched" class="error-text">
-            Please select a gratitude type
+            Please select a Endorsement type
           </div>
         </div>
 
@@ -238,7 +238,7 @@
           </label>
           <textarea 
             formControlName="message" 
-            placeholder="Write your testimonial message here..."
+            placeholder="Write your Endorsement message here..."
             class="form-textarea"
             [class.error]="gratitudeForm.get('message')?.invalid && gratitudeForm.get('message')?.touched"></textarea>
           <div *ngIf="gratitudeForm.get('message')?.invalid && gratitudeForm.get('message')?.touched" class="error-text">
@@ -250,7 +250,7 @@
         <!-- Submit Button -->
         <div class="form-actions">
           <button type="submit" class="btn-submit" [disabled]="gratitudeForm.invalid">
-            Give Testimonial
+            Give Endorsement
           </button>
         </div>
       </form>

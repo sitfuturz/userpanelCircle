@@ -1,7 +1,7 @@
 <div class="growth-meet-container">
   <!-- Header Section -->
   <div class="growth-meet-header">
-    <h1 class="page-title">Growth Meet</h1>
+    <h1 class="page-title">Business Meet</h1>
     <div class="header-controls">
       <div class="tab-container">
         <button 
@@ -31,7 +31,7 @@
     <!-- Loading State -->
     <div *ngIf="isLoading" class="loading-container">
       <div class="spinner"></div>
-      <p>Loading growth meets...</p>
+      <p>Loading business meets...</p>
     </div>
 
     <!-- Growth Meets List -->
@@ -63,9 +63,9 @@
       <!-- Empty State -->
       <div *ngIf="currentGrowthMeets.length === 0" class="empty-state">
         <div class="empty-icon">🤝</div>
-        <h3>No growth meets {{ activeTab === 'initiated' ? 'initiated by you' : 'from others' }} yet.</h3>
-        <p *ngIf="activeTab === 'initiated'">Start creating growth meets by clicking the Add button!</p>
-        <p *ngIf="activeTab === 'others'">No one has initiated a growth meet with you yet.</p>
+        <h3>No business meets {{ activeTab === 'initiated' ? 'initiated by you' : 'from others' }} yet.</h3>
+        <p *ngIf="activeTab === 'initiated'">Start creating business meets by clicking the Add button!</p>
+        <p *ngIf="activeTab === 'others'">No one has initiated a business meet with you yet.</p>
       </div>
     </div>
   </div>
@@ -115,7 +115,7 @@
   <div class="modal-container detail-modal" (click)="$event.stopPropagation()">
     <div class="modal-header">
       <div class="modal-title-section">
-        <h2>Growth Meet Details</h2>
+        <h2>Business Meet Details</h2>
         <div class="modal-meta">
           <span class="initiated-label">Initiated By: <strong>{{ selectedGrowthMeet?.initiatedBy?.name }}</strong></span>
           <span class="date-label">{{ selectedGrowthMeet?.date | date:'d MMM yyyy' }}</span>
@@ -168,7 +168,7 @@
       <div class="photo-section" *ngIf="selectedGrowthMeet?.photo">
         <span class="section-label">Photo:</span>
         <div class="photo-container">
-<img [src]="imageUrl+selectedGrowthMeet?.photo" [alt]="'Growth meet photo'" class="growth-meet-photo" onerror="this.src='assets/images/placeholder-image.png'">        </div>
+<img [src]="imageUrl+selectedGrowthMeet?.photo" [alt]="'Business meet photo'" class="growth-meet-photo" onerror="this.src='assets/images/placeholder-image.png'">        </div>
       </div>
 
       <!-- Connection Details -->
@@ -193,7 +193,7 @@
 <div *ngIf="showGrowthMeetModal" class="modal-overlay" (click)="closeGrowthMeetModal()">
   <div class="modal-container create-modal" (click)="$event.stopPropagation()">
     <div class="modal-header">
-      <h2>Growth Meet</h2>
+      <h2>Business Meet</h2>
       <button class="close-btn" (click)="closeGrowthMeetModal()">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="18" y1="6" x2="6" y2="18"/>
@@ -296,7 +296,7 @@
             </svg>
           </div>
           <div *ngIf="growthMeetForm.get('initiatedBy')?.invalid && growthMeetForm.get('initiatedBy')?.touched" class="error-text">
-            Please select who initiated the growth meet
+            Please select who initiated the business meet
           </div>
         </div>
 

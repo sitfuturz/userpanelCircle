@@ -29,7 +29,7 @@
   width: 40px;
   height: 40px;
   border: 3px solid #f3f3f3;
-  border-top: 3px solid #8b1538;
+  border-top: 3px solid #E31E24;
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin-bottom: 16px;
@@ -131,7 +131,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #8b1538;
+  background: #E31E24;
   color: white;
   display: flex;
   align-items: center;
@@ -247,7 +247,7 @@
 
 .btn-edit {
   background: rgba(255, 255, 255, 0.9);
-  color: #8b1538;
+  color: #E31E24;
   border: 2px solid rgba(255, 255, 255, 0.9);
 }
 
@@ -336,7 +336,7 @@
 }
 
 .section-header.expanded {
-  background: #8b1538;
+  background: #E31E24;
   color: white;
 }
 
@@ -409,7 +409,7 @@
 }
 
 .btn-edit-section {
-  background: #8b1538;
+  background: #E31E24;
   color: white;
 }
 
@@ -509,7 +509,7 @@
 .detail-input:focus,
 .detail-textarea:focus {
   outline: none;
-  border-color: #8b1538;
+  border-color: #E31E24;
   box-shadow: 0 0 0 3px rgba(139, 21, 56, 0.1);
 }
 
@@ -520,7 +520,7 @@
 }
 
 .link {
-  color: #8b1538;
+  color: #E31E24;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease;
@@ -581,7 +581,7 @@
 }
 
 .social-link {
-  color: #8b1538;
+  color: #E31E24;
   text-decoration: none;
   font-size: 14px;
   word-break: break-all;
@@ -608,7 +608,7 @@
   font-size: 48px;
   margin-bottom: 16px;
   opacity: 0.5;
-  color: #8b1538;
+  color: #E31E24;
 }
 
 .empty-state h3 {
@@ -660,7 +660,7 @@
 }
 
 .btn-retry {
-  background: #8b1538;
+  background: #E31E24;
   color: white;
 }
 
@@ -879,7 +879,7 @@
 .btn-delete:focus,
 .btn-retry:focus,
 .upload-btn:focus {
-  outline: 2px solid #8b1538;
+  outline: 2px solid #E31E24;
   outline-offset: 2px;
 }
 
@@ -933,7 +933,7 @@
 
   .spinner {
     animation: none;
-    border: 3px solid #8b1538;
+    border: 3px solid #E31E24;
   }
 }
 
@@ -966,7 +966,7 @@
 
   .detail-input:focus,
   .detail-textarea:focus {
-    border-color: #8b1538;
+    border-color: #E31E24;
     background: #343a40;
   }
 
@@ -1019,7 +1019,7 @@
 
 /* Loading Animation Enhancement */
 .spinner {
-  background: conic-gradient(from 0deg, transparent, #8b1538);
+  background: conic-gradient(from 0deg, transparent, #E31E24);
   border: none;
   border-radius: 50%;
 }
@@ -1031,7 +1031,7 @@
 
 /* Enhanced hover effects */
 .detail-item:hover .detail-label {
-  color: #8b1538;
+  color: #E31E24;
   transition: color 0.2s ease;
 }
 

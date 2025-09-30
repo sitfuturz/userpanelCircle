@@ -129,8 +129,8 @@
   background: white;
   
   &:focus-within {
-    border-color: #722f37;
-    box-shadow: 0 0 0 3px rgba(114, 47, 55, 0.1);
+    border-color: #E31E24;
+    box-shadow: 0 0 0 3px rgba(227, 30, 36, 0.1);
   }
   
   .country-code {
@@ -199,8 +199,8 @@
   
   &:focus {
     outline: none;
-    border-color: #722f37;
-    box-shadow: 0 0 0 3px rgba(114, 47, 55, 0.1);
+    border-color: #E31E24;
+    box-shadow: 0 0 0 3px rgba(227, 30, 36, 0.1);
   }
   
   &:disabled {
@@ -212,7 +212,7 @@
 
 .btn-login,
 .btn-verify {
-  background: #722f37;
+  background: #E31E24;
   color: white;
   border: none;
   padding: 14px 24px;
@@ -224,9 +224,9 @@
   overflow: hidden;
   
   &:hover:not(:disabled) {
-    background: #5d252a;
+    background: #b51418;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(114, 47, 55, 0.3);
+    box-shadow: 0 8px 20px rgba(227, 30, 36, 0.3);
   }
   
   &:active {
@@ -260,14 +260,14 @@
 .btn-link {
   background: none;
   border: none;
-  color: #722f37;
+  color: #E31E24;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
   
   &:hover:not(:disabled) {
-    color: #5d252a;
+    color: #b51418;
     text-decoration: underline;
   }
   
@@ -304,7 +304,7 @@
     margin: 0;
     
     .brand-text {
-      color: #722f37;
+      color: #E31E24;
       font-weight: 600;
     }
   }

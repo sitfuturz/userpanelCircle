@@ -18,7 +18,7 @@
           <!-- TYFCBs Card -->
           <div class="stat-card primary">
             <div class="stat-header">
-              <h3>TYFCBs</h3>
+              <h3>Business</h3>
               <!-- <div class="stat-growth positive">
                 +11.01%
                 <i class="icon-trending-up"></i>
@@ -30,7 +30,7 @@
           <!-- Referrals Card -->
           <div class="stat-card">
             <div class="stat-header">
-              <h3>Referrals</h3>
+              <h3>Recommendation</h3>
               <!-- <div class="stat-growth negative">
                 -0.03%
                 <i class="icon-trending-down"></i>
@@ -42,7 +42,7 @@
           <!-- One-to-Ones Card -->
           <div class="stat-card">
             <div class="stat-header">
-              <h3>One-to-Ones</h3>
+              <h3>Business Meeting</h3>
               <!-- <div class="stat-growth positive">
                 +11.01%
                 <i class="icon-trending-up"></i>
@@ -79,21 +79,21 @@
               <div class="stat-value">{{ dashboardData.testimonial || 0 }}</div>
             </div> -->
             <div class="stat-item">
-              <label>Referrals Given</label>
+              <label>Recommendation Given</label>
               <div class="stat-value">{{ dashboardData.referralGiven || 0}}</div>
             </div>
             <div class="stat-item">
-              <label>Referrals Received</label>
+              <label>Recommendation Received</label>
               <div class="stat-value">{{ dashboardData.referralReceived || 0}}</div>
             </div>
           </div>
           <div class="stats-row">
             <div class="stat-item">
-              <label>TYFCB Given</label>
+              <label>Business Given</label>
               <div class="stat-value">{{ dashboardData.tyfcbGiven || 0 }}</div>
             </div>
             <div class="stat-item">
-              <label>Revenue Received</label>
+              <label>Business Received</label>
               <div class="stat-value">{{ dashboardData.tyfcbReceived || 0 }}</div>
             </div>
             <!-- <div class="stat-item">
@@ -189,7 +189,7 @@
         <!-- Testimonials -->
         <div class="testimonials-card">
           <div class="testimonials-header">
-            <h3>My Testimonials</h3>
+            <h3>My Endorsement</h3>
             <button class="view-all-btn" (click)="navigateToGratitude()">View All</button>
           </div>
           
@@ -215,7 +215,7 @@
             
             <div *ngIf="testimonials.length === 0" class="no-testimonials">
               <i class="icon-star"></i>
-              <p>No testimonials available</p>
+              <p>No Endorsement available</p>
             </div>
           </div>
         </div>

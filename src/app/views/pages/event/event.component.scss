@@ -34,7 +34,7 @@
 
 .tab-container {
   display: flex;
-  background: #8b1538;
+  background: #E31E24;
   border-radius: 8px;
   padding: 4px;
   box-shadow: 0 2px 8px rgba(139, 21, 56, 0.2);
@@ -56,7 +56,7 @@
 
 .tab-btn.active {
   background: white;
-  color: #8b1538;
+  color: #E31E24;
   font-weight: 600;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -93,7 +93,7 @@
 }
 
 .events-list::-webkit-scrollbar-thumb {
-  background: #8b1538;
+  background: #E31E24;
   border-radius: 3px;
 }
 
@@ -117,7 +117,7 @@
 .event-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-  border-color: #8b1538;
+  border-color: #E31E24;
 }
 
 .event-image {
@@ -144,7 +144,7 @@
   font-size: 12px;
   font-weight: 600;
   color: white;
-  background: #8b1538;
+  background: #E31E24;
 }
 
 .paid-badge {
@@ -231,7 +231,7 @@
   width: 40px;
   height: 40px;
   border: 3px solid #f3f3f3;
-  border-top: 3px solid #8b1538;
+  border-top: 3px solid #E31E24;
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin-bottom: 16px;
@@ -338,7 +338,7 @@
 
 .event-type-label {
   padding: 4px 12px;
-  background: #8b1538;
+  background: #E31E24;
   color: white;
   border-radius: 12px;
   font-size: 12px;
@@ -391,7 +391,7 @@
 }
 
 .modal-body::-webkit-scrollbar-thumb {
-  background: #8b1538;
+  background: #E31E24;
   border-radius: 3px;
 }
 
@@ -475,7 +475,7 @@
 }
 
 .map-link {
-  color: #8b1538;
+  color: #E31E24;
   text-decoration: none;
   display: inline-flex;
   align-items: center;

@@ -1,0 +1,17 @@
+// Adopt primary brand color: #E31E24
+.app-footer {
+  a {
+    color: #E31E24;
+  }
+
+  a:hover {
+    color: #b51418; /* darken(#E31E24, ~15%) */
+  }
+
+  .footer-accent,
+  .footer-highlight {
+    background: rgba(227, 30, 36, 0.08);
+    color: #E31E24;
+  }
+}
+

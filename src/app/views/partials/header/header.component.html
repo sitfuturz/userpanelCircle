@@ -1,6 +1,5 @@
-
 <header class="header">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand navbar-light bg-light">
     <div class="container-fluid d-flex justify-content-between align-items-center">
       <!-- Sidebar Toggle Button -->
       <button 
@@ -13,23 +12,12 @@
       </button>
       
       <!-- Brand -->
-      <a class="navbar-brand text-secondary fw-bold">GBS Panel</a>
+      <a class="navbar-brand text-secondary fw-bold">Circle Panel</a>
       
-      <!-- Mobile menu button for header items only -->
-      <button 
-        class="navbar-toggler d-lg-none" 
-        type="button" 
-        data-bs-toggle="collapse" 
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      
 
       <!-- Navigation Items -->
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <div class="navbar-collapse justify-content-end header-right">
         <ul class="navbar-nav ms-auto align-items-center">
           <!-- User Profile Section -->
           <li class="nav-item dropdown" #userDropdown>
@@ -75,16 +63,9 @@
                   <i class="fas fa-user"></i>
                   <span>View Profile</span>
                 </a>
-                <!-- <a class="dropdown-item" (click)="navigateToSettings()">
-                  <i class="fas fa-cog"></i>
-                  <span>Settings</span>
-                </a> -->
                 <a class="dropdown-item" (click)="navigateToNotifications()">
                   <i class="fas fa-bell"></i>
                   <span>Notifications</span>
-                  <!-- <span class="notification-count" *ngIf="unreadNotificationsCount > 0">
-                    {{ unreadNotificationsCount }}
-                  </span> -->
                 </a>
               </div>
               

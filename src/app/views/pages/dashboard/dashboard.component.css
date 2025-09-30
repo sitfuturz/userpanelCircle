@@ -55,7 +55,7 @@
 }
 
 .nav-item.active .nav-link {
-  background: #722f37;
+  background: #E31E24;
   color: white;
   border-radius: 8px;
   margin: 0 12px;
@@ -72,7 +72,7 @@
 
 .nav-link:hover {
   background: #f8f9fa;
-  color: #722f37;
+  color: #E31E24;
   border-radius: 8px;
   margin: 0 12px;
 }
@@ -282,7 +282,7 @@
 }
 
 .stat-card.primary {
-  background: linear-gradient(135deg, #722f37 0%, #8b3a42 100%);
+  background: linear-gradient(135deg, #E31E24 0%, #b51418 100%);
   color: white;
 }
 
@@ -354,8 +354,8 @@
 
 .timeframe-btn.active,
 .timeframe-btn:hover {
-  background: #722f37;
-  border-color: #722f37;
+  background: #E31E24;
+  border-color: #E31E24;
   color: white;
 }
 
@@ -460,7 +460,7 @@
 }
 
 .visitor-btn {
-  background: #722f37;
+  background: #E31E24;
   color: white;
   border: none;
   padding: 10px 24px;
@@ -471,7 +471,7 @@
 }
 
 .visitor-btn:hover {
-  background: #5d252a;
+  background: #b51418;
 }
 
 .no-event {
@@ -560,7 +560,7 @@
 
 .circle {
   fill: none;
-  stroke: #722f37;
+  stroke: #E31E24;
   stroke-width: 2;
   stroke-linecap: round;
   animation: progress 1s ease-out forwards;
@@ -662,7 +662,7 @@
 .view-all-btn {
   background: none;
   border: none;
-  color: #722f37;
+  color: #E31E24;
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;

@@ -2,7 +2,7 @@
 <div class="referrals-container">
   <!-- Header Section -->
   <div class="referrals-header">
-    <h1 class="page-title">Connection</h1>
+    <h1 class="page-title">Recommendation</h1>
     
     <!-- Tabs and Add Button -->
     <div class="header-controls">
@@ -31,7 +31,7 @@
   <!-- Table Header -->
   <div class="table-header">
     <div class="header-cell name-col">Name</div>
-    <div class="header-cell connection-col">Connection</div>
+    <div class="header-cell connection-col">Recommendation</div>
     <div class="header-cell type-col">Type</div>
     <div class="header-cell rating-col">Rating</div>
   </div>
@@ -93,8 +93,8 @@
     <!-- Empty State -->
     <div *ngIf="currentReferrals.length === 0" class="empty-state">
       <div class="empty-icon">📋</div>
-      <h3>No {{ activeTab }} referrals found</h3>
-      <p>{{ activeTab === 'given' ? 'Start creating referrals by clicking the Add button' : 'You haven\'t received any referrals yet' }}</p>
+      <h3>No {{ activeTab }} recommendation found</h3>
+      <p>{{ activeTab === 'given' ? 'Start creating recommendation by clicking the Add button' : 'You haven\'t received any recommendation yet' }}</p>
     </div>
   </div>
 
@@ -137,7 +137,7 @@
 <div *ngIf="showConnectionSlip" class="modal-overlay" (click)="closeConnectionSlip()">
   <div class="modal-container" (click)="$event.stopPropagation()">
     <div class="modal-header">
-      <h2>Connection Slip</h2>
+      <h2>Recommendation Slip</h2>
       <button class="close-btn" (click)="closeConnectionSlip()">
         <span>×</span>
       </button>
@@ -210,7 +210,7 @@
         <!-- Referral Type Block -->
         <div class="form-group">
           <label class="form-label">
-            Referral Type <span class="required">*</span>
+            Recommendation Type <span class="required">*</span>
           </label>
           <div class="referral-type-block">
             <div class="referral-type-option">
@@ -239,7 +239,7 @@
             </div>
           </div>
           <div *ngIf="connectionSlipForm.get('referral_type')?.invalid && connectionSlipForm.get('referral_type')?.touched" class="error-text">
-            Please select a referral type
+            Please select a Recommendation type
           </div>
         </div>
 
@@ -249,7 +249,7 @@
         <!-- Referral Status -->
         <div class="form-group">
           <label class="form-label">
-            Referral Status <span class="required">*</span>
+            Recommendation Status <span class="required">*</span>
           </label>
           <div class="checkbox-group">
             <label class="checkbox-option">
@@ -273,22 +273,22 @@
         <!-- Referral Details -->
         <div class="form-group">
           <label class="form-label">
-            Referral Details <span class="required">*</span>
+            Recommendation details <span class="required">*</span>
           </label>
           
           <div class="form-row">
             <div class="form-col">
               <label class="field-label">
-                Referral Name <span class="required">*</span>
+                 Name <span class="required">*</span>
               </label>
               <input 
                 type="text" 
                 formControlName="referral"
-                placeholder="Enter referral person's name"
+                placeholder="Enter recommend person's name"
                 class="form-input"
                 [class.error]="connectionSlipForm.get('referral')?.invalid && connectionSlipForm.get('referral')?.touched">
               <div *ngIf="connectionSlipForm.get('referral')?.invalid && connectionSlipForm.get('referral')?.touched" class="error-text">
-                Please enter referral person's name
+                Please enter Recommended person's name
               </div>
             </div>
             
@@ -382,7 +382,7 @@
             type="submit" 
             class="btn-submit"
             [disabled]="connectionSlipForm.invalid">
-            Create Referral
+            Create Recommendation
           </button>
         </div>
       </form>
