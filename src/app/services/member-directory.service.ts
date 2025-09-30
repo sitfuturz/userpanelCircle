@@ -239,7 +239,7 @@ export class MemberDirectoryService {
       
       const response = await this.apiManager.request(
         {
-          url: `https://gbs-connect.com/admin/getCities?page=${page}&limit=${limit}`,
+          url: `https://thecircle.co.in/admin/getCities?page=${page}&limit=${limit}`,
           method: 'GET',
         },
         null,
@@ -384,7 +384,7 @@ export class MemberDirectoryService {
       
       const response = await this.apiManager.request(
         {
-          url: `https://gbs-connect.com/admin/getChapters?page=${page}&limit=${limit}`,
+          url: `https://thecircle.co.in/admin/getChapters?page=${page}&limit=${limit}`,
           method: 'GET',
         },
         null,
@@ -421,7 +421,7 @@ export class MemberDirectoryService {
       if (params.search) queryParams.append('search', params.search);  // ADD THIS LINE
       
       const queryString = queryParams.toString();
-      const url = `https://gbs-connect.com/mobile/get-users-comman-data${queryString ? '?' + queryString : ''}`;
+      const url = `https://thecircle.co.in/mobile/get-users-comman-data${queryString ? '?' + queryString : ''}`;
       
       const response = await this.apiManager.request(
         {
@@ -448,7 +448,7 @@ export class MemberDirectoryService {
       
       const response = await this.apiManager.request(
         {
-          url: `https://gbs-connect.com/admin/getUserBadges/${userId}`,
+          url: `https://thecircle.co.in/admin/getUserBadges/${userId}`,
           method: 'GET',
         },
         null,
@@ -473,7 +473,7 @@ export class MemberDirectoryService {
     const response = await this.apiManager.request(
       {
         // CORRECTED URL - removed the duplicate path segment
-        url: `https://gbs-connect.com/mobile/get-users/${userId}`,
+        url: `https://thecircle.co.in/mobile/get-users/${userId}`,
         method: 'GET',
       },
       null,
